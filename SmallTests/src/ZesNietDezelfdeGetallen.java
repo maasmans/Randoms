@@ -6,7 +6,7 @@ public class ZesNietDezelfdeGetallen {
 		int[] array = new int[6];
 		vulArrayMetCheck(array);
 		System.out.println(Arrays.toString(array));
-		
+
 	}
 
 	public static int randomGetal() { // getall tussen 0 en 9 dus 10 mogelijkheden.
@@ -34,11 +34,15 @@ public class ZesNietDezelfdeGetallen {
 
 	public static int[] vulArrayMetCheck(int[] array) {
 		for (int i = 0; i < array.length; i++) {// loopt zes keer omdat de lengte 6
-			int nieuwGetal = randomGetal();
-			if (checkOfGetalInArray(array, nieuwGetal)) {
-				array[i] = nieuwGetal;
+			while (true) {
+				int nieuwGetal = randomGetal();
+				if (checkOfGetalInArray(array, nieuwGetal)) {
+					array[i] = nieuwGetal;
+					break;
+				}
 			}
 		}
 		return array;
 	}
+	// bug dat als het getal er in zit het nummer nul zal blijven
 }
